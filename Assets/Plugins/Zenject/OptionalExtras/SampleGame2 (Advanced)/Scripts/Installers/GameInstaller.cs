@@ -6,8 +6,7 @@ namespace Zenject.SpaceFighter
     // Main installer for our game
     public class GameInstaller : MonoInstaller
     {
-        [Inject]
-        Settings _settings = null;
+        [Inject] Settings _settings = null;
 
         public override void InstallBindings()
         {
