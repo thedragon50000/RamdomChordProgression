@@ -5,6 +5,7 @@ using Zenject;
 using UniRx;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Andy.Scripts
 {
@@ -14,7 +15,7 @@ namespace Andy.Scripts
         public readonly string[] TwelveScaleName = { "C", "C#", "D", "Db", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
 
         private readonly ReactiveProperty<float> _bars = new();
-        public Transform parentGameObjectChord;
+
         [Inject] private ChordProperty_sc.Factory _chordFactory;
 
 
@@ -28,17 +29,23 @@ namespace Andy.Scripts
             // 預設4小節
             _bars.Value = 4;
 
-
-            // for (int i = 0; i < 3; i++)
-            // {
-            //     ChordProperty_sc cp = _chordFactory.Create();
-            //     cp.gameObject.transform.SetParent(parentGameObjectChord);
-            // }
+            for (int i = 0; i < 3; i++)
+            {
+                _chordFactory.Create();
+            }
         }
 
         void CreateProgression(int bars)
         {
             List<ChordProperty_sc> chords = new();
+
+            for (int i = 0; i < _bars.Value; i++)
+            {
+                chords.Add(_chordFactory.Create());
+            }
+
+            int k = Random.Range(0, 3);
+            
         }
     }
 

@@ -8,13 +8,6 @@ public class MainInstaller : MonoInstaller
 
     [Inject] Setting _setting = null;
 
-    /// <summary>
-    /// 在所有安裝程式完成之前呼叫 Inject/Resolve/Instantiate，是不好的做法！
-    /// 修正建議： 將 [Inject] 移除，並在需要的地方用以下方式解析：
-    /// var preChord = Container.Resolve<ChordProperty_sc>();
-    /// </summary>
-    /*[Inject]*/
-    // ChordProperty_sc _preChord;
     public override void InstallBindings()
     {
         Container.BindFactory<ChordProperty_sc, ChordProperty_sc.Factory>()
@@ -30,7 +23,7 @@ public class MainInstaller : MonoInstaller
     {
     }
 
-    // Note: 等於把資源管理外包給SOInstaller
+    // Note: 等於把資源管理外包給SOInstaller，可以在這裡放各種設定參數和prefab之類的
     [Serializable]
     public class Setting
     {

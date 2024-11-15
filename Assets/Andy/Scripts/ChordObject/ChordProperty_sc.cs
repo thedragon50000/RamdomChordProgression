@@ -12,7 +12,7 @@ public class ChordProperty_sc : MonoBehaviour, IPoolable<IMemoryPool>
     public List<int> chordsHF = new();
 
     IMemoryPool _pool;
-
+    
     void Init(EHarmonicFunction lastHF)
     {
         switch (lastHF)
@@ -84,6 +84,7 @@ public class ChordProperty_sc : MonoBehaviour, IPoolable<IMemoryPool>
 
     public void OnDespawned()
     {
+        print("Recycle by Pool");
         _pool = null;
     }
 
