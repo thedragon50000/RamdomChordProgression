@@ -11,9 +11,6 @@ namespace Andy.Scripts
 {
     public class Manager : MonoBehaviour
     {
-        /// 12音階
-        public readonly string[] TwelveScaleName = { "C", "C#", "D", "Db", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
-
         private readonly ReactiveProperty<int> _bars = new();
 
         [Inject] private ChordProperty_sc.Factory _chordFactory;
@@ -54,6 +51,12 @@ namespace Andy.Scripts
                 chords.Add(_chordFactory.Create());
             }
 
+            // 根據chords的內容生成音階
+            for (int i = 0; i < chords.Count; i++)
+            {
+                chords[i].gameObject.transform.SetAsLastSibling();
+                chords[i].SetHF(tsd[i]);
+            }
         }
 
         void RandomTsdProgression(int bars)
