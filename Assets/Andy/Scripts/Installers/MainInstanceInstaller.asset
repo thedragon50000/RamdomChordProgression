@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50603f9c1bae456499f70ca5a6082798, type: 3}
   m_Name: MainInstanceInstaller
   m_EditorClassIdentifier: 
-  chordParent: {fileID: 0}
-  preChord: {fileID: 3845786010252511820, guid: 0a9e898ee8f2af3438575e9633a6f89a, type: 3}
+  testSetting:
+    preChord: {fileID: 3845786010252511820, guid: 0a9e898ee8f2af3438575e9633a6f89a, type: 3}

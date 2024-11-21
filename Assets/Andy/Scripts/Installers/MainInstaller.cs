@@ -10,6 +10,7 @@ public class MainInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Container.BindInstance(chordParent).WithId("chordParent").AsSingle();
         Container.BindFactory<ChordProperty_sc, ChordProperty_sc.Factory>()
             .FromPoolableMemoryPool<ChordProperty_sc, ChordPool>(poolBinder => poolBinder
                 .WithInitialSize(8)
